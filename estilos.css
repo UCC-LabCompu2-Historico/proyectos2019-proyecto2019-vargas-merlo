@@ -5,7 +5,7 @@
 
 }
 .fondo{
-
+    background: skyblue;
     display: table;
     width: 100%;
     height: 700px;
@@ -21,10 +21,8 @@
 }
 
 .menu li{
-
     list-style: none;
     background-color: black;
-
 }
 
 .menu li a{
@@ -61,11 +59,16 @@
     vertical-align: top;
     border-bottom: 3px solid black;
     border-top: 3px solid black;
-    width: 30%;
+    width: 50%;
     height: 100%;
 }
 
-.solucion{
+.datos button{
+
+    align-items: end;
+    margin-top: 10px;
+}
+.dibujo{
 
     position: relative;
     padding: 70px;
@@ -78,19 +81,32 @@
 
 
 }
- .solucion button {
 
-     margin-left: 300px;
- }
 
-#lienzo {
+#myCanvas {
 
+    border: 3px solid black;
+    background-color: aliceblue;
     position: sticky;
     align-self: end;
-    margin: 50px ;
-    width:  400px;
-    height: 400px;
+    padding: 30px;
+    margin: 55px ;
+    width:  500px;
+    height: 500px;
 }
 
+.info{
 
+    font-style: normal;
+    margin: 100px;
+}
+
+.info img{
+    display: block;
+    margin: auto;
+}
+
+.info p{
+    text-align: center;
+}
 

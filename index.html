@@ -1,61 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel=StyleSheet href="webpart1.css" type="text/css" media=screen>
+    <link rel=StyleSheet href="estilos.css" type="text/css" media=screen>
+    <script type="text/javascript" src="funciones.js"> </script>
     <title>Triangulos rectangulos</title>
 </head>
 <header>
-<div class="titulo">
-    <div class='logo' align="center"><img src='imagenes/generatedtext.png'/></div>
-    <div class="menu">
-            <li><a href="parte2.html">Mas informacion</a></li>
+    <div class="titulo">
+        <div class='logo' align="center"><img src='imagenes/generatedtext.png'/></div>
+        <div class="menu">
+            <li><a href="informacion.html">Mas informacion</a></li>
+        </div>
     </div>
-</div>
 </header>
 <div class="fondo">
     <div class="instrucciones">
         <h3 align="left"> Finalidad del programa: </h3>
-        <p> Mediante el Teorema de Pitagoras permite calcular el lado faltante de un tiangulo rectangulo,
-            tambien da la opcion para el calculo del area y del perimetro, y dibuja la figura</p>
+        <p> Mediante el Teorema de Pitagoras permite calcular el lado opuesto al angulo recto de un triangulo
+        rectanulo. Para mas informacion acerca del teorema, ve al menu y haz click en "Mas informacion" </p>
         <h3 align="left"> Instrucciones </h3>
         <ol>
-            <li>Ingresa los lados que tengas como datos, deja en 0 el casillero de la incognita</li>
+            <li>Ingresa los catetos que tengas como datos, en el casillero de la hipotenusa te aparecera
+            la solucion</li>
             <li>Si deseas calcular tambien el area o el perimetro, selecciona la opcion</li>
-            <li>Pulsa calcular para correr el programa</li>
+            <li>Pulsa dibujar para ver la figura a escala</li>
         </ol>
         <img src="imagenes/imagen.png" align="center" width="80" height="80">
     </div>
     <div class="datos">
+        <form class="formula" name="pitagoras">
         <h3> Ingrese datos: </h3>
-        <h4> Cateto 1: </h4><input type="number" name="Cateto 1" min="0" max="100" step="1" value="0">
-        <h4> Cateto 2: </h4><input type="number" name="Cateto 2" min="0" max="100" step="1" value="0">
-        <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="1" value="0">
+        <h4> Cateto 1: </h4><input type="number" name="Cateto1" min="0" max="100" step="0.1" value="0" onchange="operacion()">
+        <h4> Cateto 2: </h4><input type="number" name="Cateto2" min="0" max="100" step="0.1" value="0" onchange="operacion()">
+        <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="0.1" value="0">
         <h3> Calcular tambien:</h3>
-        <select name=" ">
-            <option value="Area">Area</option>
-            <option value="Perimetro">Perimetro</option>
-            <option value="Ambas">Ambas</option>
-            <option value="Ninguno">Ninguno</option>
-        </select>
-        <br></br>
-        <button type="button">Calcular</button>
+            <button type="button" onclick="area()">Area</button>
+            <input type="number" name="Area">
+            <button type="button" onclick="perimetro()">Perimetro</button>
+            <input type="number" name="Perimetro">
+        <button type="button"  onclick="dibujar()">DIBUJAR!</button>
+         </form>
     </div>
-    <div class="solucion">
-        <canvas height="400px" width="400px" id="lienzo"></canvas>
-        <button type="button"> Reiniciar</button>
-            <script>
-                var lienzo= document.getElementById("lienzo");
-                var ctx =lienzo.getContext("2d");
-                var miimagen= new Image();
-                miimagen.src="imagenes/img.png";
-                miimagen.onload = function (){
-                    ctx.drawImage (miimagen,0,0)
-                }
-            </script>
-        </div>
+    <div class="dibujo">
+        <canvas height="600px" width="600px" id="myCanvas"></canvas>
+        <button type="button" onclick="limpiar()"> Reiniciar</button>
+
     </div>
+
+</div>
 </div>
 </body>
 </html>
+
