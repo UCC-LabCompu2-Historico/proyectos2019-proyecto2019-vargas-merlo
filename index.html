@@ -16,13 +16,21 @@
 </header>
 <div class="fondo">
     <div class="instrucciones">
+        <style type="text/css">
+            body {
+                font-family: Georgia, "Times New Roman",
+                Times, serif;}
+            h1 {
+                font-family: Helvetica, Geneva, Arial,
+                SunSans-Regular, sans-serif }
+        </style>
         <h3 align="left"> Finalidad del programa: </h3>
         <p> Mediante el Teorema de Pitagoras permite calcular el lado opuesto al angulo recto de un triangulo
-        rectanulo. Para mas informacion acerca del teorema, ve al menu y haz click en "Mas informacion" </p>
+            rectanulo. Para mas informacion acerca del teorema, ve al menu y haz click en "Mas informacion" </p>
         <h3 align="left"> Instrucciones </h3>
         <ol>
             <li>Ingresa los catetos que tengas como datos, en el casillero de la hipotenusa te aparecera
-            la solucion</li>
+                la solucion</li>
             <li>Si deseas calcular tambien el area o el perimetro, selecciona la opcion</li>
             <li>Pulsa dibujar para ver la figura a escala</li>
         </ol>
@@ -30,17 +38,17 @@
     </div>
     <div class="datos">
         <form class="formula" name="pitagoras">
-        <h3> Ingrese datos: </h3>
-        <h4> Cateto 1: </h4><input type="number" name="Cateto1" min="0" max="100" step="0.1" value="0" onchange="operacion()">
-        <h4> Cateto 2: </h4><input type="number" name="Cateto2" min="0" max="100" step="0.1" value="0" onchange="operacion()">
-        <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="0.1" value="0">
-        <h3> Calcular tambien:</h3>
+            <h3> Ingrese datos: </h3>
+            <h4> Cateto 1: </h4><input type="number" name="Cateto1" min="0" max="100" step="0.1" value="0" onchange="operacion()">
+            <h4> Cateto 2: </h4><input type="number" name="Cateto2" min="0" max="100" step="0.1" value="0" onchange="operacion()">
+            <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="0.1" value="0">
+            <h3> Calcular tambien:</h3>
             <button type="button" onclick="area()">Area</button>
             <input type="number" name="Area">
             <button type="button" onclick="perimetro()">Perimetro</button>
             <input type="number" name="Perimetro">
-        <button type="button"  onclick="dibujar()">DIBUJAR!</button>
-         </form>
+            <button type="button"  onclick="dibujar()">DIBUJAR!</button>
+        </form>
     </div>
     <div class="dibujo">
         <canvas height="600px" width="600px" id="myCanvas"></canvas>
@@ -52,4 +60,3 @@
 </div>
 </body>
 </html>
-
