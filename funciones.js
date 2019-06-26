@@ -32,6 +32,8 @@ function operacion() {
         var c = Math.sqrt(a+b);
 
         document.pitagoras.Hipotenusa.value=c.toFixed(2);
+        document.pitagoras.Area.value=" ";
+        document.pitagoras.Perimetro.value=" ";
     }
 
     else {
