@@ -1,4 +1,4 @@
-/** <form></form>
+ no/** <form></form>
  * Calculo de la hipotenusa<form></form>
  * @method operacion<form></form>
  * @param Cateto1<form></form>
@@ -21,8 +21,11 @@ function operacion() {
 
     var catA = document.pitagoras.Cateto1.value;
     var catB = document.pitagoras.Cateto2.value;
+    var hip = document.pitagoras.Hipotenusa.value;
 
-    if(catA>0 || catB>0){
+    if(hip!=0) { document.pitagoras.Hipotenusa.value=0; }
+
+    if(catA>0 && catB>0){
 
         var a = Math.pow(catA, 2);
         var b = Math.pow(catB, 2);
@@ -31,9 +34,20 @@ function operacion() {
         document.pitagoras.Hipotenusa.value=c.toFixed(2);
     }
 
-    else{ alert("DEBE INGRESAR VALORES POSITIVOS"); }
+    else {
+           if(catA<0) {
 
+               document.pitagoras.Cateto1.value = 0;
+               alert("INGRESE NUMEROS POSIIVOS");
+           }
+           if(catB<0){
+
+               document.pitagoras.Cateto2.value=0;
+               alert("INGRESE NUMEROS POSIIVOS");
+           }
     }
+
+}
 
     function dibujar(){
 
@@ -41,6 +55,8 @@ function operacion() {
     var ctx = canvas.getContext("2d");
     var n1 = document.pitagoras.Cateto1.value*30;
     var n2 = document.pitagoras.Cateto2.value*30;
+
+    if(n1>0 && n2>0) {
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = "#000";
@@ -50,15 +66,23 @@ function operacion() {
     ctx.lineTo(100, n1);
     ctx.fill();
     ctx.closePath();
-    ctx.stroke();
+    ctx.stroke();   }
+
+    else{ alert("INGRESE VALORES PARA GRAFICAR");}
 }
 
 function area() {
 
     var catA = document.pitagoras.Cateto1.value;
     var catB = document.pitagoras.Cateto2.value;
+    var catC = document.pitagoras.Hipotenusa.value;
 
-    document.pitagoras.Area.value=catA*catB/2;
+    if(catA>0 && catB>0 && catC>0) {
+
+        document.pitagoras.Area.value = catA * catB / 2;
+    }
+
+    else{ alert("POR FAVOR, INGRESE NUMEROS VALIDOS");}
 
 }
 
@@ -68,14 +92,20 @@ function perimetro(){
     var catB = document.pitagoras.Cateto2.value;
     var catC = document.pitagoras.Hipotenusa.value;
 
-    document.pitagoras.Perimetro.value=parseInt(catA)+parseInt(catB)+parseInt(catC);
+    if(catC>0 && catA>0 && catC>0) {
+
+        document.pitagoras.Perimetro.value = parseInt(catA) + parseInt(catB) + parseInt(catC);
+    }
+
+    else{ alert("POR FAVOR, INGRESE NUMEROS VALIDOS");}
+
 }
 
 function limpiar() {
+
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    var n1 = document.pitagoras.Cateto1.value*30;
-    var n2 = document.pitagoras.Cateto2.value*30;
+
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
@@ -85,3 +115,4 @@ function limpiar() {
     document.pitagoras.Area.value=0;
     document.pitagoras.Perimetro.value=0;
 }
+

@@ -33,21 +33,19 @@
             <h3> Ingrese datos: </h3>
             <h4> Cateto 1: </h4><input type="number" name="Cateto1" min="0" max="100" step="0.1" value="0" onchange="operacion()">
             <h4> Cateto 2: </h4><input type="number" name="Cateto2" min="0" max="100" step="0.1" value="0" onchange="operacion()">
-            <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="0.1" value="0">
+            <h4> Hipotenusa: </h4><input type="number" name="Hipotenusa" min="0" max="100" step="0.1" value="0" onchange="operacion()" >
             <h3> Calcular tambien:</h3>
             <button type="button" onclick="area()">Area</button>
             <input type="number" name="Area">
             <button type="button" onclick="perimetro()">Perimetro</button>
-            <input type="number" name="Perimetro">
+            <input type="number"  name="Perimetro">
             <button type="button"  onclick="dibujar()">DIBUJAR!</button>
         </form>
     </div>
     <div class="dibujo">
         <canvas height="600px" width="600px" id="myCanvas"></canvas>
         <button type="button" onclick="limpiar()"> Reiniciar</button>
-
     </div>
-
 </div>
 </div>
 </body>
