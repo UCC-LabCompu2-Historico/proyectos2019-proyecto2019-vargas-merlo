@@ -23,7 +23,7 @@ function operacion() {
     var catB = document.pitagoras.Cateto2.value;
     var hip = document.pitagoras.Hipotenusa.value;
 
-    if(hip!=0) { document.pitagoras.Hipotenusa.value=0; }
+    if(hip!==0) { document.pitagoras.Hipotenusa.value=0; }
 
     if(catA>0 && catB>0){
 
@@ -53,36 +53,72 @@ function operacion() {
 
     function dibujar(){
 
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+
     var n1 = document.pitagoras.Cateto1.value*30;
     var n2 = document.pitagoras.Cateto2.value*30;
+    var n3 = 0;
 
     if(n1>0 && n2>0) {
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = "#000";
-    ctx.beginPath();
-    ctx.moveTo(n2, 100);
-    ctx.lineTo(100, 100);
-    ctx.lineTo(100, n1);
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();   }
+        id = setInterval(function(){
+
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            //Eliminar triangulo anterior
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+
+            //Incremento n1 y n2
+
+            n1 = (n1 + 1);
+            n2 = (n2 + 1);
+            n3 = (n3 + 1);
+
+            //Dibujo nuevamente
+
+          //  ctx.fillStyle = "#000" ;
+            ctx.beginPath();
+            ctx.moveTo(n2, n3);
+            ctx.lineTo(n3, n3);
+            ctx.lineTo(n3, n1);
+           // ctx.fill();
+            ctx.closePath();
+            ctx.stroke();
+
+            if(n3>80){
+
+                clearInterval(id);
+                ctx.fillStyle = "#000" ;
+                ctx.beginPath();
+                ctx.moveTo(n2, n3);
+                ctx.lineTo(n3, n3);
+                ctx.lineTo(n3, n1);
+                ctx.fill();
+                ctx.closePath();
+                ctx.stroke();
+            }
+
+
+        },1000/100);
+
+  }
 
     else{ alert("INGRESE VALORES PARA GRAFICAR");}
 }
+
 
 function area() {
 
     var catA = document.pitagoras.Cateto1.value;
     var catB = document.pitagoras.Cateto2.value;
     var catC = document.pitagoras.Hipotenusa.value;
+    
 
     if(catA>0 && catB>0 && catC>0) {
 
         document.pitagoras.Area.value = catA * catB / 2;
     }
+
 
     else{ alert("POR FAVOR, INGRESE NUMEROS VALIDOS");}
 
@@ -107,6 +143,8 @@ function limpiar() {
 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
+
+    clearInterval(id); //Detiene animacion
 
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
